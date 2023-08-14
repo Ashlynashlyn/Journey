@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
 import DayList from './DayList';
 
 function Planner(props) {
     const { destination, startDate, endDate, budget } = props.tripData || {};
+
+    // TODO：events 中包含日期，遂与startDate加N去进行对应，对应上后，进行event处理
     const [planDeleted, setPlanDeleted] = useState(false);
 
     const deletePlan = () => {
@@ -21,11 +24,21 @@ function Planner(props) {
             const endDateCal = new Date(endDate);
             const timeDifference = endDateCal - startDateCal;
             const inputDuration = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)) + 1;
+
     
             setDuration(inputDuration);
-            setDayNumbers(Array.from({ length: inputDuration }, (_, index) => index + 1));
+          
+            setDayNumbers(Array.from({ length: inputDuration }, (_, index) => {
+                return {
+                    curDate: index + 1,
+                    plannerDate: dayjs(startDate).add(index, 'd').format('YYYY-MM-DD'),
+                    events: (props.events || []).filter((item) => {
+                        return dayjs(item.CurrentDate).unix() === dayjs(startDate).add(index, 'd').unix()
+                    })
+                }
+            }));
         }
-    }, [startDate, endDate]);
+    }, [startDate, endDate, props.events]);
 
     const initialBudget = budget;
     const [remainingBudget, setRemainingBudget] = useState(initialBudget);
@@ -40,23 +53,18 @@ function Planner(props) {
         setRemainingBudget(updatedRemainingBudget);
     };
 
-    const eventsForDay3 = [
-        { name: "Event 1", description: "Description for Event 1" },
-        { name: "Event 2", description: "Description for Event 2" },
-    ];
-    const itinerariesForDay3 = [
-        { id: 'completed', name: 'Completed Itinerary', description: 'Completed itinerary description.', location: 'Some location' },
-        { id: 'needs_attention', name: 'Itinerary Needs Attention', description: '', location: '' },
-    ];
-    const updatedItineraries = itinerariesForDay3.map((itinerary) => {
-        const isCompleted = itinerary.description || itinerary.location;
-        const description = isCompleted ? itinerary.description : "You haven't planned this itinerary yet!";
-        return {
-            ...itinerary,
-            id: isCompleted ? 'completed' : 'needs_attention',
-            description: description,
-        };
-    });
+
+    const updatedItineraries = (curEvents) => {
+        return (curEvents || []).map((itinerary) => {
+            const isCompleted = itinerary.Description || itinerary.Location;
+            const description = isCompleted ? itinerary.Description : "You haven't planned this itinerary yet!";
+            return {
+                ...itinerary,
+                id: isCompleted ? 'completed' : 'needs_attention',
+                description: description,
+            };
+        });
+    }
 
     return (
         <div>
@@ -64,6 +72,7 @@ function Planner(props) {
                 <>
                     <main>
                         <div className="containerIndex">
+                            {/* 左侧目的地列表 */}
                             <div className="sidebar">
                                 <div className="flex-item">
                                     <img src="img/menu.png" alt="menu_icon" id="menu" />
@@ -86,6 +95,7 @@ function Planner(props) {
                                 </div>
                             </div>
 
+                            {/* 右侧具体某个目的地的行程 */}
                             <div className="mainbar">
                                 <Link to="/addevent" className="add-event">
                                     <span>Add Event</span>
@@ -98,16 +108,18 @@ function Planner(props) {
 
                                 {dayNumbers.map((dayNumber, index) => (
                                     <DayList 
-                                        key={dayNumber} 
+                                        key={dayNumber.curDate} 
                                         dayNumber={dayNumber} 
-                                        flexevents={eventsForDay3} 
-                                        flexitineraries={updatedItineraries} 
+                                        flexevents={dayNumber.events} 
+                                        flexitineraries={updatedItineraries(dayNumber.events)} 
                                         dailyBudget={dailyBudgets[index]}
                                         setDailyBudget={(newDailyBudget) => handleDailyBudgetChange(index, newDailyBudget)}
                                         remainingBudget={remainingBudget}
                                     />
                                 ))}
                             </div>
+
+                           
                         </div>
                     </main>
                 </>

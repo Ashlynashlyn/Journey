@@ -12,7 +12,7 @@ export function Nav() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item"><NavLink to="/Input" className="nav-link">Start</NavLink></li>
-            <li className="nav-item"><NavLink to="/AddEvent" className="nav-link">Add</NavLink></li>
+            {/* <li className="nav-item"><NavLink to="/AddEvent" className="nav-link">Add</NavLink></li> */}
             <li className="nav-item"><NavLink to="/Planner" className="nav-link">Plan</NavLink></li>
           </ul>
         </div>

@@ -11,6 +11,7 @@ const DayEvent = ({ flexevent, onDelete }) => {
 };
 
   const DayItinerary = ({ itinerary, onDelete }) => {
+    // TODO: itinerary.id === 'completed' 这句话的含义代表什么意思
     const itineraryClass = itinerary.id === 'completed' ? 'flex-itinerary completed' : 'flex-itinerary needs-attention';
   
     return (
@@ -75,11 +76,11 @@ const DayDefault = ({ initialFlexevents, initialFlexitineraries, dailyBudget, se
             <p>Remaining Budget: ${remainingBudget}</p>
           </div>
         </div>
-        {flexitinerariesState.map((itinerary, index) => (
+        {(flexitinerariesState || []).map((itinerary, index) => (
           <DayItinerary key={index} itinerary={itinerary} onDelete={() => deleteItinerary(index)} />
         ))}
 
-        {flexeventsState.map((flexevent, index) => (
+        {(flexeventsState || []).map((flexevent, index) => (
             <DayEvent key={index} flexevent={flexevent} onDelete={() => deleteEvent(index)} />
         ))}
       </div>
@@ -92,7 +93,7 @@ const DayDefault = ({ initialFlexevents, initialFlexitineraries, dailyBudget, se
 const DayList = ({ dayNumber, flexevents, flexitineraries, dailyBudget, setDailyBudget, remainingBudget }) => {
   return (
     <div className="flex-day">
-      <h3>Day {dayNumber}</h3>
+      <h3>Day {dayNumber.curDate}</h3>
       <DayDefault 
           initialFlexevents={flexevents} 
           initialFlexitineraries={flexitineraries} 

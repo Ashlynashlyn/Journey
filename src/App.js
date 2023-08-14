@@ -25,13 +25,15 @@ const [plans, setPlans] = useState([]);
 
   const [events, setEvents] = useState([]);
 
-  const addEvent = (DayNumber, EventName, Location, Description) => {
+  const addEvent = (Date, EventName, Location, Description, Itinerary) => {
     const newEvent = {
-      DayNumber: DayNumber,
+      CurrentDate: Date,
       EventName: EventName,
       Location: Location,
-      Description: Description
+      Description: Description,
+      Itinerary: Itinerary
     }
+
     setEvents([...events, newEvent]);
   };
 
