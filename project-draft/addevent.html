@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <title>Journemo - Add Event</title>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="introduction.html">Journemo: Your Travel Planner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="input.html">Start</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="addevent.html">Add</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" href="index.html">Plan</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <main class="container mt-4  bg-sky">
+    <h1>Add a New Event</h1>
+    <form>
+      <div class="mb-3">
+        <label for="eventName" class="form-label">Event Name:</label>
+        <input type="text" class="form-control" id="eventName" name="eventName" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="eventDate" class="form-label">Event Date:</label>
+        <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="eventDay" class="form-label">Event Day:</label>
+        <input type="number" class="form-control" id="eventDay" name="eventDay" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="eventTime" class="form-label">Event Time:</label>
+        <input type="time" class="form-control" id="eventTime" name="eventTime">
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location:</label>
+        <input type="text" class="form-control" id="location" name="location">
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" name="description"></textarea>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="itinerary" name="itinerary">
+        <label class="form-check-label" for="itinerary">Is It An Itinerary?</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Event</button>
+    </form>
+  </main>
+
+  <footer class="bg-light py-3 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2023 Journemo. All rights reserved.</p>
+      <p id="contact">Contact Us: <a href="mailto:info@journemo.com"><span class="material-icons"></span>info@journemo.com</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-fnMzBIW/AVKdW1ZKh5vBvtO4jB1JZmp3hSYLs5QDfMhUu6IG5gZKpy4ij4b3R9dg" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

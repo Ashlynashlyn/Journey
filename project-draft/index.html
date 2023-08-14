@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>INFO340 Project: Draft 1</title>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <meta name="authors" content="Candice Hu, Ashlyn Li, Sally Shen, Oscar Wang">
+  <meta name="description" content="This is the main page of Journemo, an travel planner to put all your plans all in one place.">
+
+  <!-- normalize.css for cross-browser stuff -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="introduction.html">Journemo: Your Travel Planner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" href="input.html">Start</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" href="addevent.html">Add</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" href="index.html">Plan</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main> 
+        <div class="containerIndex">
+            <!-- Side bar -->
+            <div class="sidebar">
+                <div class="flex-item"><img src="img/menu.png" alt="menu_icon" id="menu"><h2>Choose Plan</h2></div>
+                <div class="flex-item"><a href="#"><img src="img/travel-bag.png" alt="plan_icon"><span>Plan1</span></a></div>
+                <div class="flex-item"><a href="input.html" aria-label="Add New Plan"><img src="img/add.png" alt="add_icon"><span>Add New Plan</span></a></div>
+            </div>
+
+            <!-- Main page -->
+            <div class="mainbar">
+                <a href="addevent.html" alt=“addevent_icon” class="add-event">Add Event</a>
+                <!-- Plan Title -->
+                <div class="plan_header">
+                    <h2 class="plan_name">Plan Name</h2>  
+                    <img src="img/delete.png" alt="delete_icon" class="delete-icon">
+                </div>
+                <!-- Day 1 -->
+                <div class="flex-day">
+                    <!-- what users will see if an itinerary is added but not filled in -->
+                    <h3>Day 1</h3>
+                    <div class="flex-items">
+                        <div class="flex-defaults">
+                            <div class="flex-notes">
+                            <h4>Notes</h4>
+                            <p>Click to add notes</p>
+                            </div>
+                            <div class="flex-budget">
+                            <h4>Budget</h4>
+                            <p>Daily Cost: $0</p>
+                            <p>Remaining Budget: $700</p>
+                            </div>
+                        </div>
+                        <div class="flex-itinerary" id="completed">
+                            <img src="img/delete.png" alt="delete_icon" class="delete-icon">
+                            <h4>Flight</h4>
+                            <p> Flight Information</p>
+                        </div>
+                        <div class="flex-itinerary" id="needs_attention">
+                            <img src="img/delete.png" alt="delete_icon" class="delete-icon">
+                            <h4>Lodging</h4>
+                            <p>You haven't planned this itinerary yet!</p>
+                        </div>
+                        <div class="flex-event">
+                            <img src="img/delete.png" alt="delete_icon" class="delete-icon">
+                            <h4>Event: Pike Place Market</h4>
+                            <p>Seattle's original farmers market and the center of locally sourced, artisan and specialty foods.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Day 2 -->
+                <!-- what users will see if events are added -->
+                <div class="flex-day">
+                    <h3> Day 2</h3>
+                    <div class="flex-items">
+                        <div class="flex-defaults">
+                            <div class="flex-notes">
+                            <h4>Notes</h4>
+                            <p>Click to add notes</p>
+                            </div>
+                            <div class="flex-budget">
+                            <h4>Budget</h4>
+                            <p>Daily Cost: $0</p>
+                            <p>Remaining Budget: $700</p>
+                            </div>
+                        </div>
+                        <div class="flex-event" id="test">
+                            <img src="img/delete.png" alt="delete_icon" class="delete-icon">
+                            <h4>Event: Pike Place Market</h4>
+                            <p>Seattle's original farmers market and the center of locally sourced, artisan and specialty foods.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Day 3 -->
+                <!-- what users will see in default -->
+                <div class="flex-day">
+                    <h3>Day 3</h3>
+                    <div class="flex-items">
+                        <div class="flex-defaults">
+                            <div class="flex-notes">
+                            <h4>Notes</h4>
+                            <p>Click to add notes</p>
+                            </div>
+                            <div class="flex-budget">
+                            <h4>Budget</h4>
+                            <p>Daily Cost: $0</p>
+                            <p>Remaining Budget: $700</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Journemo. All rights reserved.</p>
+        <p>Contact Us: <a href="mailto:info@journemo.com"><span class="material-icons"></span>info@journemo.com</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>INFO340 Project: Draft 1</title>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <meta name="authors" content="Candice Hu, Ashlyn Li, Sally Shen, Oscar Wang">
+  <meta name="description" content="This is the main page of Journemo, an travel planner to put all your plans all in one place.">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="introduction.html">Journemo: Your Travel Planner</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="input.html">Start</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addevent.html">Add</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-primary" href="index.html">Plan</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  <main class="container mt-4 bg-image">
+    <!-- Page title-->
+    <h1>Start a New Trip</h1>
+
+    <!-- The container including all the chunks that users will input values-->
+    <form>
+      <!-- Input1: Destination-->
+      <div class="mb-3">
+        <label for="destination" class="form-label">Destination:</label>
+        <input type="text" class="form-control" id="destination" name="destination" placeholder="Enter your destination">
+      </div>
+
+      <div class="row">
+        <!-- Input2: Start Day-->
+        <div class="col-md-6 mb-3">
+          <label for="start-date" class="form-label">Start date:</label>
+          <input type="date" class="form-control" id="start-date" name="start-date">
+        </div>
+
+        <!-- Input3: End Day-->
+        <div class="col-md-6 mb-3">
+          <label for="end-date" class="form-label">End date:</label>
+          <input type="date" class="form-control" id="end-date" name="end-date">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="budget" class="form-label">Budget:</label>
+        <input type="number" class="form-control" id="budget" name="budget" min="0">
+      </div>
+
+      <!--button to submit the input values-->
+      <a class="btn btn-primary" href="index.html">Start the trip</a>
+    </form>
+  </main>
+
+  <footer class="bg-light py-3 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2023 Journemo. All rights reserved.</p>
+      <p id="contact">Contact Us: <a href="mailto:info@journemo.com"><span class="material-icons"></span>info@journemo.com</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-fnMzBIW/AVKdW1ZKh5vBvtO4jB1JZmp3hSYLs5QDfMhUu6IG5gZKpy4ij4b3R9dg" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
