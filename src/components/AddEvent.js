@@ -62,6 +62,11 @@ function AddEventForm(props) {
             <label htmlFor="eventName" className="form-label">Event Name:</label>
             <textarea className="form-control" id="eventName" name="eventName" onChange={handleEventNameChange} required></textarea>
           </div>
+        
+          <div className="mb-3">
+            <label htmlFor="location" className="form-label">Location:</label>
+            <textarea className="form-control" id="location" name="location" onChange={handleLocationChange} required></textarea>
+          </div>
           
           
           <div className="mb-3">
@@ -78,7 +83,7 @@ function AddEventForm(props) {
 
           {isLinkEnabled ? (
             <Link to="/Planner">
-              <button onClick={handleSubmit} type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Add Event
               </button>
             </Link>

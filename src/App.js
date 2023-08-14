@@ -33,7 +33,6 @@ const [plans, setPlans] = useState([]);
       Description: Description
     }
     setEvents([...events, newEvent]);
-    console.log(events);
   };
 
   return (

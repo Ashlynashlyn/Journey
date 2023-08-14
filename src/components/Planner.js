@@ -40,8 +40,6 @@ function Planner(props) {
         setRemainingBudget(updatedRemainingBudget);
     };
 
-    const events = props.events;
-
     const eventsForDay3 = [
         { name: "Event 1", description: "Description for Event 1" },
         { name: "Event 2", description: "Description for Event 2" },
@@ -102,7 +100,7 @@ function Planner(props) {
                                     <DayList 
                                         key={dayNumber} 
                                         dayNumber={dayNumber} 
-                                        flexevents={events.filter(event => event.dayNumber === dayNumber)} 
+                                        flexevents={eventsForDay3} 
                                         flexitineraries={updatedItineraries} 
                                         dailyBudget={dailyBudgets[index]}
                                         setDailyBudget={(newDailyBudget) => handleDailyBudgetChange(index, newDailyBudget)}
